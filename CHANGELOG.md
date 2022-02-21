@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+- Fix `no-unused-vars` (<https://github.com/exercism/eslint-config-typescript/pull/10>)
+
 ## 0.4.0
 
 - Update to eslint 8+
