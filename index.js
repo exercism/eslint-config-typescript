@@ -69,6 +69,7 @@ module.exports = {
     ],
 
     // Covered by the tsc compiler (noUnusedLocals)
+    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
 
     // Prevent bugs, not styling
