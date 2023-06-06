@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- Upgrade for TypeScript 5+
+- Use Ecma 13 (2022+)
+- Use Yarn 3
+
 ## 0.4.1
 
 - Fix `no-unused-vars` (<https://github.com/exercism/eslint-config-typescript/pull/10>)

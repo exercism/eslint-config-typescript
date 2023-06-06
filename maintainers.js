@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   env: {
-    es2021: true,
+    es2022: true,
     node: true,
   },
   extends: [
@@ -14,7 +14,7 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint'],
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 13,
     sourceType: 'module',
   },
   globals: {
@@ -120,9 +120,16 @@ module.exports = {
   overrides: [
     {
       // enable the rule specifically for TypeScript files
-      files: ['*.ts', '*.tsx'],
+      files: ['*.ts'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'error',
+      },
+    },
+    {
+      // enable the rule specifically for TypeScript test files
+      files: ['*.spec.ts', '*.test.ts'],
+      env: {
+        jest: true,
       },
     },
   ],
