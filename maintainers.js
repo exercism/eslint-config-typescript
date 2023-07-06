@@ -111,9 +111,12 @@ module.exports = {
     // semi: ['error', 'always'],
   },
   settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
-      node: {
-        extensions: ['.ts'],
+      typescript: {
+        alwaysTryTypes: true,
       },
     },
   },
