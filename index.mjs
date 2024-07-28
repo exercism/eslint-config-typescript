@@ -25,7 +25,8 @@ export default tsEslint.config(
       '@typescript-eslint': tsEslint.plugin,
       '@stylistic/ts': stylisticTs,
       jest: jestPlugin,
-      plugin,
+      // @ts-ignore
+      [plugin.meta.name]: plugin,
     },
     languageOptions: {
       parser: tsEslint.parser,
