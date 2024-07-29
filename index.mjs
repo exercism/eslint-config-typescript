@@ -7,6 +7,8 @@ import tsEslint from 'typescript-eslint';
 import jestPlugin from 'eslint-plugin-jest';
 import stylisticTs from '@stylistic/eslint-plugin-ts';
 
+import globals from 'globals';
+
 const pkg = JSON.parse(
   fs.readFileSync(new URL('./package.json', import.meta.url), 'utf8'),
 );
@@ -25,13 +27,16 @@ export default tsEslint.config(
       '@typescript-eslint': tsEslint.plugin,
       '@stylistic/ts': stylisticTs,
       jest: jestPlugin,
-      // @ts-ignore
+      // @ts-expect-error we know this is set from the contents above, but the type makes it optional
       [plugin.meta.name]: plugin,
     },
     languageOptions: {
       parser: tsEslint.parser,
       parserOptions: {
         project: true,
+      },
+      globals: {
+        ...globals.node,
       },
     },
     extends: [eslint.configs.recommended, ...tsEslint.configs.recommended],

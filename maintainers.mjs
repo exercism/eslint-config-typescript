@@ -8,6 +8,8 @@ import jestPlugin from 'eslint-plugin-jest';
 import stylisticTs from '@stylistic/eslint-plugin-ts';
 import prettierConfig from 'eslint-config-prettier';
 
+import globals from 'globals';
+
 const pkg = JSON.parse(
   fs.readFileSync(new URL('./package.json', import.meta.url), 'utf8'),
 );
@@ -26,13 +28,16 @@ export default tsEslint.config(
       '@typescript-eslint': tsEslint.plugin,
       '@stylistic/ts': stylisticTs,
       jest: jestPlugin,
-      // @ts-ignore
+      // @ts-expect-error we know this is set from the contents above, but the type makes it optional
       [plugin.meta.name]: plugin,
     },
     languageOptions: {
       parser: tsEslint.parser,
       parserOptions: {
         project: true,
+      },
+      globals: {
+        ...globals.node,
       },
     },
     extends: [eslint.configs.recommended, ...tsEslint.configs.recommended],
@@ -88,9 +93,6 @@ export default tsEslint.config(
         },
       ],
 
-      // stylistic choice
-      '@stylistic/ts/semi': ['error', 'never'],
-
       // disable the rule for all* (js) files (see overrides for enabling it)
       '@typescript-eslint/explicit-module-boundary-types': 'off',
 
@@ -113,6 +115,9 @@ export default tsEslint.config(
     files: ['**.ts', '**.tsx'],
     rules: {
       '@typescript-eslint/explicit-module-boundary-types': 'error',
+
+      // stylistic choice
+      '@stylistic/ts/semi': ['error', 'never'],
     },
   },
   {
@@ -134,6 +139,14 @@ export default tsEslint.config(
       ...jestPlugin.configs['flat/recommended'].rules,
       'jest/no-disabled-tests': 'off',
       'jest/no-test-prefixes': 'off',
+    },
+    languageOptions: {
+      globals: {
+        // Don't make jest globals available! These should not be available
+        // but imported from @jest/globals.
+        //
+        // ...globals.jest,
+      },
     },
   },
 

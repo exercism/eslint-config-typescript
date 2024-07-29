@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.6.0
+## 0.7.0
 
 - Use Yarn 4
 - Update to eslint 9+
