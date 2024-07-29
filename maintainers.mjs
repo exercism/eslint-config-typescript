@@ -71,6 +71,18 @@ export default tsEslint.config(
         },
       ],
       '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
       'no-use-before-define': 'off',
       '@typescript-eslint/no-use-before-define': [
         'error',
@@ -111,9 +123,10 @@ export default tsEslint.config(
     },
   },
   {
-    // Enable boundary checks on TS files
     files: ['**.ts', '**.tsx'],
+    extends: [...tsEslint.configs.recommendedTypeCheckedOnly],
     rules: {
+      // Enable boundary checks on TS files
       '@typescript-eslint/explicit-module-boundary-types': 'error',
 
       // stylistic choice

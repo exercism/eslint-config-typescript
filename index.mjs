@@ -39,7 +39,10 @@ export default tsEslint.config(
         ...globals.node,
       },
     },
-    extends: [eslint.configs.recommended, ...tsEslint.configs.recommended],
+    extends: [
+      eslint.configs.recommended,
+      ...tsEslint.configs.recommendedTypeChecked,
+    ],
     rules: {
       // @typescript-eslint rules to prevent bugs
       '@typescript-eslint/explicit-function-return-type': [
@@ -85,6 +88,18 @@ export default tsEslint.config(
       ],
 
       // Prevent bugs, not styling
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
       '@typescript-eslint/no-use-before-define': [
         'error',
         {
