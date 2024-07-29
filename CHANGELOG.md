@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.1
+
+- Ensure tests are allowed to be disabled
+- Ensure tests can use the `xit` (`xtest`) and `xdescribe` options
+
 ## 0.7.0
 
 - Use Yarn 4

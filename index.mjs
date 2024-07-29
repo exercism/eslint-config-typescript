@@ -137,5 +137,10 @@ export default tsEslint.config(
       '**/*.test.ts*',
     ],
     ...jestPlugin.configs['flat/recommended'],
+    rules: {
+      ...jestPlugin.configs['flat/recommended'].rules,
+      'jest/no-disabled-tests': 'off',
+      'jest/no-test-prefixes': 'off',
+    },
   },
 );
