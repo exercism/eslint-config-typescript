@@ -9,7 +9,7 @@
   "author": "Derk-Jan Karrenbeld <derk-jan+git@karrenbeld.info> (https://derk-jan.com)",
   "license": "MIT",
   "peerDependencies": {
-    "eslint": ">= 9.0",
+    "eslint": ">= 9.8",
     "typescript": ">= 5.5"
   },
   "devDependencies": {
