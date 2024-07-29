@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0
+
+- Use Yarn 4
+- Update to eslint 9+
+- Migrate to flat config
+- Make compatible with Yarn PnP
+
 ## 0.5.0
 
 - Upgrade for TypeScript 5+
