@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- Update dependencies (breaking)
+
 ## 0.7.1
 
 - Ensure tests are allowed to be disabled
