@@ -47,7 +47,7 @@ Because the [Exercism TypeScript track][git-typescript] is primarily focussing o
 
 ## Maintainers configuration
 
-Similar to the students configuration, and found [here](maintainers.js), it also includes the [`prettier` plugin][git-eslint-plugin-prettier] because we use [`prettier`][web-prettier] to achieve consistent code formatting.
+Similar to the students configuration, and found [here](maintainers.mjs), it also includes the [`prettier` plugin][git-eslint-plugin-prettier] because we use [`prettier`][web-prettier] to achieve consistent code formatting.
 This plugin turns _off_ rules that conflict with formatting.
 
 Additionally, it doesn't have warnings but errors for most/all of the rules in the students configuration.
