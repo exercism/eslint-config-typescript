@@ -57,6 +57,19 @@ Additionally, it doesn't have warnings but errors for most/all of the rules in t
 Because the tooling (such as the [TypeScript Analyzer][git-typescript-analyzer], [Representer][git-typescript-representer], and [Test Runner][git-typescript-test-runner]) are written in TypeScript, they don't use the same configuration files.
 If you're looking for those, or to build your own tools in TypeScript, go to [@exercism/eslint-config-tooling][git-eslint-config-tooling].
 
+## Development
+
+If you want to work on this repository, install the dependencies using `corepack` and `yarn`:
+
+```shell
+corepack enable yarn
+corepack yarn install
+
+# or similar, see yarn documentation
+# https://yarnpkg.com/getting-started/editor-sdks
+corepack yarn dlx @yarnpkg/sdks vscode
+```
+
 [git-eslint-config-tooling]: https://github.com/exercism/eslint-config-tooling
 [git-eslint-plugin-import]: https://github.com/benmosher/eslint-plugin-import
 [git-eslint-plugin-prettier]: https://github.com/prettier/eslint-config-prettier
