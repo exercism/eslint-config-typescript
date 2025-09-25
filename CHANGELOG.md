@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0
+
+- Update dependencies (breaking)
+- Migrate to pnpm
+- Migrate to eslint provided `defineConfig`
+- Migrate stylistic to unified package
+
 ## 0.8.0
 
 - Update dependencies (breaking)

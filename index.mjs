@@ -3,9 +3,10 @@
 import fs from 'fs';
 
 import eslint from '@eslint/js';
-import tsEslint from 'typescript-eslint';
+import stylisticTs from '@stylistic/eslint-plugin';
 import jestPlugin from 'eslint-plugin-jest';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
+import { defineConfig } from 'eslint/config';
+import tsEslint from 'typescript-eslint';
 
 import globals from 'globals';
 
@@ -21,7 +22,7 @@ const plugin = {
   },
 };
 
-export default tsEslint.config(
+export default defineConfig(
   {
     plugins: {
       '@typescript-eslint': tsEslint.plugin,
