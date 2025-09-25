@@ -5,7 +5,7 @@ import fs from 'fs';
 import eslint from '@eslint/js';
 import tsEslint from 'typescript-eslint';
 import jestPlugin from 'eslint-plugin-jest';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
+import stylisticTs from '@stylistic/eslint-plugin';
 import prettierConfig from 'eslint-config-prettier';
 
 import globals from 'globals';
@@ -43,14 +43,6 @@ export default tsEslint.config(
     extends: [eslint.configs.recommended, ...tsEslint.configs.recommended],
     rules: {
       // @typescript-eslint rules
-      '@typescript-eslint/explicit-function-return-type': [
-        'warn',
-        {
-          allowExpressions: false,
-          allowTypedFunctionExpressions: true,
-          allowHigherOrderFunctions: true,
-        },
-      ],
       '@typescript-eslint/explicit-member-accessibility': [
         'warn',
         {
@@ -107,6 +99,8 @@ export default tsEslint.config(
 
       // disable the rule for all* (js) files (see overrides for enabling it)
       '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/no-require-imports': 'error',
 
       // eslint rules
       'array-callback-return': ['error', { checkForEach: true }],
@@ -128,6 +122,14 @@ export default tsEslint.config(
     rules: {
       // Enable boundary checks on TS files
       '@typescript-eslint/explicit-module-boundary-types': 'error',
+      '@typescript-eslint/explicit-function-return-type': [
+        'warn',
+        {
+          allowExpressions: false,
+          allowTypedFunctionExpressions: true,
+          allowHigherOrderFunctions: true,
+        },
+      ],
 
       // stylistic choice
       '@stylistic/ts/semi': ['error', 'never'],
@@ -137,6 +139,12 @@ export default tsEslint.config(
     // disable type-aware linting on JS files
     files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
     ...tsEslint.configs.disableTypeChecked,
+  },
+  {
+    files: ['**/*.cjs', '**/*.cts'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
   },
   {
     // enable jest rules on test files

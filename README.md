@@ -59,15 +59,11 @@ If you're looking for those, or to build your own tools in TypeScript, go to [@e
 
 ## Development
 
-If you want to work on this repository, install the dependencies using `corepack` and `yarn`:
+If you want to work on this repository, install the dependencies using `corepack` and `pnpm`:
 
 ```shell
-corepack enable yarn
-corepack yarn install
-
-# or similar, see yarn documentation
-# https://yarnpkg.com/getting-started/editor-sdks
-corepack yarn dlx @yarnpkg/sdks vscode
+corepack enable pnpm
+corepack pnpm install
 ```
 
 [git-eslint-config-tooling]: https://github.com/exercism/eslint-config-tooling
